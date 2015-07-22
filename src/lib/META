@@ -1,0 +1,12 @@
+# OASIS_START
+# DO NOT EDIT (digest: 8fc194413ae8c4fe36244e1ddbdb3468)
+version = "0.0.1"
+description = "Bindings to math functions distributed with C."
+requires = "ctypes.stubs"
+archive(byte) = "cmath.cma"
+archive(byte, plugin) = "cmath.cma"
+archive(native) = "cmath.cmxa"
+archive(native, plugin) = "cmath.cmxs"
+exists_if = "cmath.cma"
+# OASIS_STOP
+

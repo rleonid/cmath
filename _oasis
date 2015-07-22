@@ -1,0 +1,23 @@
+OASISFormat: 0.4
+Name:        Cmath
+Version:     0.0.1
+Synopsis:    Bindings to math functions distributed with C.
+Authors:     Leonid Rozenberg
+License:     BSD-3-clause
+Plugins:     DevFiles (0.3), META (0.3)
+BuildTools : ocamlbuild
+
+Library "cmath"
+  Path:             src/lib
+  Modules:          Cmath
+  InternalModules:  Cmath_bindings, Cmath_generated
+  CSources:         cmath_stubs.c
+  CCOpt:            -I $pkg_ctypes_stubs
+  BuildDepends:     bytes, ctypes.stubs
+  BuildTools:       cmath_bindgen
+
+Executable "cmath_bindgen"
+  Install:          false
+  Path:             src/lib_gen
+  MainIs:           cmath_bindgen.ml
+  BuildDepends:     ctypes.stubs
